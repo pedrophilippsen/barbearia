@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Club da Barba | Barbearia Unidade da Praça</title>
+<meta name="description" content="Barbearia com tempo e atenção para crianças, idosos e quem precisa de um atendimento diferente. Rua Santa Isabel, 15. Agende online.">
+<meta name="theme-color" content="#090909">
+<link rel="icon" href="img/logo.png">
+
+<!-- Fontes do Google: Fraunces (títulos) e Albert Sans (textos) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#agendar">Ir para o agendamento</a>
+
+<!-- TOPO: logo, menu, botão agendar, aumentar texto -->
+<header class="topo">
+  <div class="wrap barra">
+    <a class="marca" href="#inicio" aria-label="Club da Barba, início"><img src="img/logo.png" alt=""><span>Club da Barba</span></a>
+    <nav id="menu" aria-label="Principal">
+      <a href="#acessibilidade">Atendimento</a><a href="#equipe">Equipe</a><a href="#servicos">Serviços</a><a href="#galeria">Espaço</a><a href="#contato">Contato</a>
+    </nav>
+    <a class="btn" href="#agendar">Agendar</a>
+    <button class="ico" id="aa" aria-pressed="false" aria-label="Aumentar o tamanho do texto">A+</button>
+    <button class="ico" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">☰</button>
+  </div>
+</header>
+
+<main id="inicio">
+
+  <!-- INÍCIO -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="status" id="status">Verificando horário…</p>
+      <h1>Seu corte, sem pressa.</h1>
+      <p class="lead">Barbearia em frente à praça, com tempo e atenção para crianças, idosos e quem precisa de um atendimento diferente.</p>
+      <div class="acoes"><a class="btn" href="#agendar">Agendar horário</a><a class="btn vazio" href="#equipe">Conhecer a equipe</a></div>
+      <ul class="selos"><li>Segunda a sábado, das 9h às 20h</li><li>Sem fechar ao meio-dia</li><li>Rampa de acesso</li></ul>
+    </div>
+  </section>
+
+  <!-- ATENDIMENTO E ACESSIBILIDADE -->
+  <section class="sec capitone" id="acessibilidade">
+    <div class="wrap duas">
+      <div>
+        <h2>Atendimento que respeita o seu tempo</h2>
+        <p class="sub">A Unidade da Praça foi criada no início de 2026, a pedido dos clientes, para quem precisa de mais atenção e de um horário que caiba na rotina.</p>
+      </div>
+      <ul class="lista">
+        <li><b>Chegada acessível</b><span>Rampa para cadeirantes e entrada em frente à praça.</span></li>
+        <li><b>Crianças com calma</b><span>Música tranquila, ambiente sossegado e conversa no tom certo para quem estranha um lugar novo.</span></li>
+        <li><b>Atenção especial</b><span>Cuidado extra com crianças com autismo, com deficiência visual ou auditiva e com mobilidade reduzida.</span></li>
+        <li><b>Horário flexível</b><span>Atendemos até as 20h, sem fechar ao meio-dia, e deixamos horários livres para encaixes sem agendamento.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EQUIPE (os cards são criados pelo JavaScript) -->
+  <section class="sec" id="equipe">
+    <div class="wrap">
+      <h2>Escolha quem vai cortar seu cabelo</h2>
+      <p class="sub">Cada barbeiro tem agenda própria e uma especialidade.</p>
+      <div class="grade" id="equipeGrade"></div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS E VALORES (a lista é criada pelo JavaScript) -->
+  <section class="sec grafite" id="servicos">
+    <div class="wrap">
+      <h2>Serviços e valores</h2>
+      <p class="sub">O valor varia conforme o corte e o tempo que ele leva.</p>
+      <ul class="tabela" id="tabela"></ul>
+      <ul class="regras">
+        <li>Cada atendimento leva cerca de 40 minutos; cortes mais elaborados podem levar mais.</li>
+        <li>Tolerância de 20 minutos de atraso, para não prejudicar o próximo cliente.</li>
+        <li>Não pedimos pagamento antecipado, mas você pode deixar pago se preferir.</li>
+        <li>Temos planos mensais e combos de corte, barba e sobrancelha. Pergunte ao seu barbeiro.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- AGENDAMENTO -->
+  <section class="sec" id="agendar">
+    <div class="wrap estreito">
+      <h2>Agende seu horário</h2>
+      <p class="sub">Escolha o barbeiro, o serviço e o horário. Não precisa pagar antes.</p>
+      <form class="cartao" id="form" novalidate>
+        <div class="campo"><label for="barbeiro"><b class="passo">1</b>Barbeiro</label><select id="barbeiro"></select></div>
+        <div class="campo"><label for="servico"><b class="passo">2</b>Serviço</label><select id="servico"></select></div>
+        <div class="campo"><label for="data"><b class="passo">3</b>Data</label><input type="date" id="data"><small>Atendemos de segunda a sábado.</small></div>
+        <div class="campo"><span class="rot" id="rotHora"><b class="passo">4</b>Horário</span><div class="horas" id="horas" role="group" aria-labelledby="rotHora"><p class="dica">Escolha o barbeiro e a data para ver os horários.</p></div></div>
+        <div class="campo"><label for="nome"><b class="passo">5</b>Seu nome</label><input id="nome" autocomplete="name"></div>
+        <div class="campo"><label for="tel">WhatsApp com DDD</label><input id="tel" type="tel" autocomplete="tel" placeholder="(51) 90000-0000"></div>
+        <label class="chk"><input type="checkbox" id="especial">Preciso de mais tempo ou de um ambiente mais calmo</label>
+        <p class="erro" id="erro" role="alert" hidden></p>
+        <button class="btn" type="submit">Confirmar agendamento</button>
+      </form>
+      <!-- Aparece no lugar do formulário depois de confirmar -->
+      <div class="cartao ok" id="ok" tabindex="-1" hidden></div>
+    </div>
+  </section>
+
+  <!-- ESPAÇO (fotos) -->
+  <section class="sec" id="galeria" style="padding-top:0">
+    <div class="wrap">
+      <h2>O espaço</h2>
+      <p class="sub">Cadeiras de couro e detalhes dourados, em um ambiente tranquilo.</p>
+      <div class="galeria">
+        <img src="img/equipe.jpg" alt="Equipe do Club da Barba em pé atrás das cadeiras de couro preto e dourado" loading="lazy">
+        <img src="img/interior.jpg" alt="Salão com espelhos iluminados, painéis de madeira e cadeiras de barbeiro" loading="lazy">
+        <img src="img/atendimento.jpg" alt="Barbeiro finalizando um corte em um cliente" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO E LOCALIZAÇÃO (os links são preenchidos pelo JavaScript) -->
+  <section class="sec grafite" id="contato">
+    <div class="wrap duas">
+      <div>
+        <h2>Venha nos visitar</h2>
+        <ul class="info">
+          <li><b>Endereço</b>Rua Santa Isabel, 15, em frente à praça</li>
+          <li><b>Horário</b>Segunda a sábado, das 9h às 20h</li>
+          <li><b>Estacionamento</b>Não temos estacionamento privado, mas há vagas na faixa amarela, bem na frente.</li>
+          <li><b>Acessibilidade</b>Rampa para cadeirantes.</li>
+        </ul>
+        <div class="acoes">
+          <a class="btn" id="zap" href="#" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+          <a class="btn vazio" id="mapa" href="#" target="_blank" rel="noopener">Como chegar</a>
+          <a class="btn vazio" id="insta" href="#" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+      <img src="img/fachada.jpg" alt="Fachada do Club da Barba com a placa e a bandeira da barbearia" loading="lazy">
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Club da Barba, Unidade da Praça. Rua Santa Isabel, 15. © <span id="ano"></span>. Versão de demonstração.</div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
+
+https://prod.liveshare.vsengsaas.visualstudio.com/join?B18EF0D5B1AE96A5B38197DD47E6FF65DF28
